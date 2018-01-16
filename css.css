@@ -1,0 +1,33 @@
+#mainxxx div kbd{
+    display: inline-block;
+
+    width: 4em;
+    height: 4em;
+    border: 1px solid;
+    text-transform: uppercase;
+    position: relative;
+}
+#mainxxx div:nth-child(2){
+    margin-left: 2em;
+
+}
+#mainxxx div:nth-child(3){
+    margin-left: 4em;
+    
+}
+/* main{
+    margin: 0 auto;
+} */
+
+main{
+    text-align: center;
+}
+#mainxxx{
+    display: inline-block;
+
+}
+#mainxxx button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
