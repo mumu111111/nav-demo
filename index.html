@@ -10,8 +10,7 @@
 <body>
     <nav></nav>
     <main>
-        <div id="mainxxx"></div>
-        
+        <div id="main" class="wrapper"></div>
     </main>
     <footer></footer>
     <script>
@@ -40,24 +39,46 @@
             index=0;
             while(index< keys.length){
                 div1= document.createElement('div')
+                div1.className="row"
                 index2=0;
                 shuzu=keys[index]
                 while(index2<shuzu.length){
                     kbd=document.createElement('kbd')
                     div1.appendChild(kbd)
-                    kbd.textContent=shuzu[index2]
+                    kbd.className="key"
+                    span=document.createElement('span')
+                    span.textContent=shuzu[index2]
+                    span.className="text"
+                    kbd.appendChild(span)
+                    img=document.createElement('img')
+                    if(hash[shuzu[index2]]){
+                        img.src='http://'+hash[shuzu[index2]]+'/favicon.ico'
+                    }
+                    else{
+                        img.src='//i.loli.net/2017/11/10/5a05afbc5e183.png'
+                    }
+                    img.onerror= function(ddddd){
+                        console.log(ddddd.target.src='//i.loli.net/2017/11/10/5a05afbc5e183.png')
+                    }
+                    kbd.appendChild(img)
                     btn=document.createElement('button')
                     btn.textContent= "编辑"
                     kbd.appendChild(btn)
                     btn.id= shuzu[index2]
                     btn.onclick= function(ddfhgh){
                         console.log(ddfhgh);
-                        key=ddfhgh['target']['id']
+                        button2=ddfhgh.target;
+                        key=button2['id']
                         x= prompt('给我一个网址')
                         hash[key]=x
+                        img2=button2.previousSibling
+                        img2.src='http://'+x+'/favicon.ico'
+                        img2.onerror= function(ffffff){
+                            ffffff.target.src='//i.loli.net/2017/11/10/5a05afbc5e183.png'
+                        }
                         localStorage.setItem('zzz',JSON.stringify(hash))
                     }
-                    mainxxx.appendChild(div1);
+                    main.appendChild(div1);
                     index2= index2+1;
                 }
                 index= index+1;

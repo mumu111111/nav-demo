@@ -1,4 +1,12 @@
-#mainxxx div kbd{
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    background: #888 url(./img/wall6.jpg) no-repeat ;
+    background-size: cover;
+}
+#main div kbd{
     display: inline-block;
 
     width: 4em;
@@ -7,12 +15,12 @@
     text-transform: uppercase;
     position: relative;
 }
-#mainxxx div:nth-child(2){
-    margin-left: 2em;
+#main div:nth-child(2){
+    margin-left: -22px;
 
 }
-#mainxxx div:nth-child(3){
-    margin-left: 4em;
+#main div:nth-child(3){
+    margin-left: -80px;
     
 }
 /* main{
@@ -21,13 +29,57 @@
 
 main{
     text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-#mainxxx{
-    display: inline-block;
+#main{
 
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border-radius: 5px;
 }
-#mainxxx button{
+
+
+
+#main .key button{
     position: absolute;
     right: 0;
     bottom: 0;
+    display: none;
+}
+#main kbd:hover >button{
+    display: inline-block;
+}
+#main .key{
+    width: 50px;
+    height: 40px;
+    border: 1px solid #262626;
+    background: linear-gradient(to bottom, #292929 1%,#111111 100%);
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #3A3A3A, 0 0 0 2px #1A1B1C, 0 3px 0 2px #030303;
+   
+    font-size: 16px;
+    font-family: Helvetica;
+    color: #CFCFCF;                
+}
+#main .row{
+    margin: 20px;
+}
+#main .row .key{
+    margin: 0 10px;
+}
+
+.key .text{
+    position: absolute;
+    left: 4px ;
+    top: 2px;
+}
+.key img{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 4px ;
+    bottom: 2px;
 }
