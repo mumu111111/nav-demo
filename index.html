@@ -35,17 +35,24 @@
                     length: 3
                 }
                 var hash ={
-                    'q': 'qq.com',
+                
+                    'q': 'qq.com', 
                     'w': 'weibo.com',
-                    'e': 'ele.com',
-                    'r': 'renren.com',
-                    't': 'tianya.com',
-                    'y': 'youtube.com',
-                    'i': 'iciba.com',
-                    'j': 'jd.com'
+                    'e': 'ele.me', 
+                    'r': 'renren.com', 
+                    't': 'tianya.com', 
+                    'y': 'youtube.com', 
+                    'u': 'uc.com' , 
+                    'i': 'iqiyi.com', 
+                    'o': 'opera.com', 
+                    'p': undefined, 
+                    'a': 'acfun.tv', 
+                    's': 'sohu.com', 
+                    'z': 'zhihu.com', 
+                    'm': 'www.mcdonalds.com.cn'
                 }
                 // 覆盖hash ,获取最新的hash
-                var hashInLocalStorage= JSON.parse(localStorage.getItem('zzz')|| null)
+                var hashInLocalStorage=  getFromlocalStorage(name)
                 if(hashInLocalStorage){
                     hash=hashInLocalStorage
                 }
@@ -53,6 +60,9 @@
                     "keys":keys,
                     "hash":hash
                 }
+            }
+            function getFromlocalStorage(name){
+                return JSON.parse(localStorage.getItem(name) || null)
             }
 
             function generatorKeyboard(keys, hash){
