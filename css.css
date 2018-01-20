@@ -23,10 +23,6 @@ body{
     margin-left: -80px;
     
 }
-/* main{
-    margin: 0 auto;
-} */
-
 main{
     text-align: center;
     height: 100vh;
@@ -35,14 +31,10 @@ main{
     align-items: center;
 }
 #main{
-
     display: inline-block;
     background: rgba(255,255,255,0.2);
     border-radius: 5px;
 }
-
-
-
 #main .key button{
     position: absolute;
     right: 0;

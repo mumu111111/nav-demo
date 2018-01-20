@@ -35,24 +35,31 @@
             if(hashInLocalStorage){
                 hash=hashInLocalStorage
             }
-           //  遍历keys, 生成kbd标签
-            index=0;
-            while(index< keys.length){
-                div1= document.createElement('div')
-                div1.className="row"
-                index2=0;
-                shuzu=keys[index]
-                while(index2<shuzu.length){
-                    kbd=document.createElement('kbd')
-                    div1.appendChild(kbd)
+
+
+
+            function tag(tagName){
+                var element= document.createElement(tagName)
+                return element; 
+            }
+            //  生成键盘：遍历keys, 生成kbd标签
+            for(var index=0;index< keys['length'];index=index+1 ){
+                var div= tag('div')
+                div.className="row"
+                main.appendChild(div)
+                var row=keys[index]//keys中第一个 、 第二个、第三个数组
+                
+                for(var index2=0;index2<row['length'];index2=index2+1){
+
+                    var kbd=tag('kbd')
                     kbd.className="key"
-                    span=document.createElement('span')
-                    span.textContent=shuzu[index2]
+                    var span=tag('span')
+                    span.textContent=row[index2]
                     span.className="text"
                     kbd.appendChild(span)
-                    img=document.createElement('img')
-                    if(hash[shuzu[index2]]){
-                        img.src='http://'+hash[shuzu[index2]]+'/favicon.ico'
+                    var img=tag('img')
+                    if(hash[row[index2]]){
+                        img.src='http://'+hash[row[index2]]+'/favicon.ico'
                     }
                     else{
                         img.src='//i.loli.net/2017/11/10/5a05afbc5e183.png'
@@ -60,35 +67,37 @@
                     img.onerror= function(ddddd){
                         console.log(ddddd.target.src='//i.loli.net/2017/11/10/5a05afbc5e183.png')
                     }
-                    kbd.appendChild(img)
-                    btn=document.createElement('button')
-                    btn.textContent= "编辑"
-                    kbd.appendChild(btn)
-                    btn.id= shuzu[index2]
-                    btn.onclick= function(ddfhgh){
-                        console.log(ddfhgh);
-                        button2=ddfhgh.target;
-                        key=button2['id']
-                        x= prompt('给我一个网址')
+                    
+                    var button=tag('button')
+                    button.textContent= "编辑"
+                    button.id= row[index2]
+                    button.onclick= function(ddfhgh){
+                        //console.log(ddfhgh);
+                        var button2=ddfhgh.target;
+                        var img2=button2.previousSibling
+                        var key=button2['id']
+                        var x= prompt('给我一个网址')
                         hash[key]=x
-                        img2=button2.previousSibling
                         img2.src='http://'+x+'/favicon.ico'
                         img2.onerror= function(ffffff){
                             ffffff.target.src='//i.loli.net/2017/11/10/5a05afbc5e183.png'
                         }
                         localStorage.setItem('zzz',JSON.stringify(hash))
                     }
-                    main.appendChild(div1);
-                    index2= index2+1;
+                
+                    kbd.appendChild(img)
+                    kbd.appendChild(button)
+                    div.appendChild(kbd)
                 }
-                index= index+1;
             }
+
+           
             // 用户点击 打开对应的网址
             document.onkeypress=function(djjfkf){
                 // console.log(djjfkf)
                 // console.log(djjfkf['key'])
-               key =djjfkf['key']
-               website= hash[key]
+               var key =djjfkf['key']
+               var website= hash[key]
                window.open('http://'+website, '_blank')
             //    location.href='http://'+website
             }
