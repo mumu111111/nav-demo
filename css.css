@@ -38,8 +38,11 @@ main{
 #main .key button{
     position: absolute;
     right: 0;
-    bottom: 0;
+    top: 0;
     display: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
 }
 #main kbd:hover >button{
     display: inline-block;
